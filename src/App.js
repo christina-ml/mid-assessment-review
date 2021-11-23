@@ -16,8 +16,19 @@ class App extends Component {
   render(){
     let productDataElArr = data.map((product)=>{
       return (
-        <h3>{product.name}</h3>
-        
+        <div>
+          <h3>{product.name}</h3>
+          <div>Price: $19.99</div>
+          <button>Add To Cart</button>
+          <img 
+            src="https://via.placeholder.com/200/0000FF/FFFFFF?text=Baseball+Glove" 
+            alt="product image"
+          />
+          <div>
+            This glove has a mark on it that's either a famous player's autograph or a ketchup stain.
+          </div>
+        </div>
+
       )
     })
 
