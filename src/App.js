@@ -16,17 +16,18 @@ class App extends Component {
 
   render(){
     let productDataElArr = data.map((product)=>{
+      let { name, price, img, description } = product;
       return (
         <div>
-          <h3>{product.name}</h3>
-          <div>Price: {formatPrice(product.price)}</div>
+          <h3>{ name }</h3>
+          <div>Price: {formatPrice(price)}</div>
           <button>Add To Cart</button>
           <img 
-            src={product.img}
-            alt={product.name}
+            src={ img }
+            alt={ name }
           />
           <div>
-            {product.description}
+            { description }
           </div>
         </div>
 
