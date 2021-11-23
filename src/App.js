@@ -15,6 +15,11 @@ class App extends Component {
     }
   }
 
+  /* 
+    - Want to add to `subtotal`, and add to `cartArr`.
+    - want to pass data to handleAddToCart.
+    - if I want to pass information to all of these, use an anonymous arrow function (to prevent it from running immediately), and we want to be able to invoke it.
+  */
   handleAddToCart=()=>{
     console.log("trigger");
   }
@@ -26,7 +31,7 @@ class App extends Component {
         <div key={ id }>
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
-          <button onClick={this.handleAddToCart}>Add To Cart</button>
+          <button onClick={()=>this.handleAddToCart(product)}>Add To Cart</button>
           <div>
             <img 
               src={ img }
