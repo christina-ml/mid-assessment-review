@@ -65,11 +65,31 @@ class App extends Component {
       )
     })
 
+    let cartElArr = this.state.cartArr.map((productsInCart)=>{
+      let { name, price } = productsInCart;
+      return <li>{ name }: { formatPrice(price) }</li>
+    })
+
     return(
       <div id="app">
-        <h1>My Garage Sale Review</h1>
-        <div className="products">
-          {productDataElArr}
+        <div id="products-container">
+          <h1>My Garage Sale Review</h1>
+          <div className="products">
+            {productDataElArr}
+          </div>
+        </div>
+
+        <div>
+          <h1>Cart</h1>
+            <ul>
+              {cartElArr}
+            </ul>
+            <h2>Subtotal: { formatPrice(this.state.subtotal) }</h2>
+            <h2>Tax: { formatPrice(this.state.subtotal * 0.05) }</h2>
+            <h2>Total: { formatPrice(this.state.subtotal * 1.05) }</h2>
+
+          <h1>Checkout</h1>
+          <form></form>
         </div>
       </div>
     )
