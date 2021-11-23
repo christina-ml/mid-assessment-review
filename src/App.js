@@ -17,14 +17,13 @@ class App extends Component {
 
   handleAddToCart=()=>{
     console.log("trigger");
-    console.log(this.state.cartArr);
   }
 
   render(){
     let productDataElArr = data.map((product)=>{
-      let { name, price, img, description } = product;
+      let { id, name, price, img, description } = product;
       return (
-        <div>
+        <div key={ id }>
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
           <button onClick={this.handleAddToCart}>Add To Cart</button>
