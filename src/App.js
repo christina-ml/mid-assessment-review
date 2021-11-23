@@ -47,6 +47,7 @@ class App extends Component {
     let productDataElArr = data.map((product)=>{
       let { id, name, price, img, description } = product;
       return (
+        // Product
         <div key={ id }>
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
@@ -67,11 +68,13 @@ class App extends Component {
 
     let cartElArr = this.state.cartArr.map((productsInCart)=>{
       let { name, price } = productsInCart;
+      // Cart Item (component)
       return <li>{ name }: { formatPrice(price) }</li>
     })
 
     return(
       <div id="app">
+        {/* All Products (component) */}
         <div id="products-container">
           <h1>My Garage Sale Review</h1>
           <div className="products">
@@ -80,6 +83,7 @@ class App extends Component {
         </div>
 
         <div>
+          {/* Cart (component) */}
           <h1>Cart</h1>
             <ul>
               {cartElArr}
@@ -88,6 +92,7 @@ class App extends Component {
             <h2>Tax: { formatPrice(this.state.subtotal * 0.05) }</h2>
             <h2>Total: { formatPrice(this.state.subtotal * 1.05) }</h2>
 
+          {/* Checkout (component) */}
           <h1>Checkout</h1>
           <form></form>
         </div>
