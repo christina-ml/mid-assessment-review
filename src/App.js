@@ -1,6 +1,7 @@
 import { Component } from "react";
 import "./App.css";
 import data from './data/productData'
+import formatPrice from './helpers/formatPrice'
 
 console.log(data);
 
@@ -18,14 +19,14 @@ class App extends Component {
       return (
         <div>
           <h3>{product.name}</h3>
-          <div>Price: $19.99</div>
+          <div>Price: {formatPrice(product.price)}</div>
           <button>Add To Cart</button>
           <img 
-            src="https://via.placeholder.com/200/0000FF/FFFFFF?text=Baseball+Glove" 
-            alt="product image"
+            src={product.img}
+            alt={product.name}
           />
           <div>
-            This glove has a mark on it that's either a famous player's autograph or a ketchup stain.
+            {product.description}
           </div>
         </div>
 
