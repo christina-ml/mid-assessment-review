@@ -24,11 +24,21 @@ class App extends Component {
     - Add this information into `cartArr`. This will be an array, of each item added to cart.
   */
   /*
-    - (see in devTools - components) take current subtotal, and add the product.price to it each time, to add it.
+    - Update subtotal in our state. (see in devTools - components) take current subtotal, and add the product.price to it each time, to add it.
+    - Update cartArr - Take the array that's currently in state, and make a new array with it. Using the spread operator. Then add our new product to the new array.
+    - Take what's currently there, add the new product to it.
+    - (Take what's currently there, add the new subtotal to it.)
+    - We have an array of objects now, of what we have added to our cart.
+
+    - Now have an array of each item in our cart, and an array of each product.
+    - Next step we focus on - the Form (work on your own)
+
+    - Only use what we need. Passing the whole product makes sense, so we have access to everything & could add other parts of our product together if we ever want to. To anticipate adding more features later, or more functionality later.
   */
   handleAddToCart=(product)=>{
     // console.log(product); // entire object gets passed in.
     this.setState({
+      cartArr: [ ...this.state.cartArr, product ],
       subtotal: this.state.subtotal + product.price,
     })
   }
