@@ -21,9 +21,16 @@ class App extends Component {
     - if I want to pass information to all of these, use an anonymous arrow function (to prevent it from running immediately), and we want to be able to invoke it.
     - pass it an argument. When we click `handleAddToCart`, we get what we passed in during the onClick.
     - want to pass in entire product information, in case we want to use ANY of the info later.
+    - Add this information into `cartArr`. This will be an array, of each item added to cart.
   */
-  handleAddToCart=(thingFromButton)=>{
-    console.log(thingFromButton); // entire object gets passed in.
+  /*
+    - (see in devTools - components) take current subtotal, and add the product.price to it each time, to add it.
+  */
+  handleAddToCart=(product)=>{
+    // console.log(product); // entire object gets passed in.
+    this.setState({
+      subtotal: this.state.subtotal + product.price,
+    })
   }
 
   render(){
