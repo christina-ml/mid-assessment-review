@@ -20,9 +20,10 @@ class App extends Component {
     - want to pass data to handleAddToCart.
     - if I want to pass information to all of these, use an anonymous arrow function (to prevent it from running immediately), and we want to be able to invoke it.
     - pass it an argument. When we click `handleAddToCart`, we get what we passed in during the onClick.
+    - want to pass in entire product information, in case we want to use ANY of the info later.
   */
   handleAddToCart=(thingFromButton)=>{
-    console.log(thingFromButton);
+    console.log(thingFromButton); // entire object gets passed in.
   }
 
   render(){
