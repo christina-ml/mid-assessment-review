@@ -22,10 +22,12 @@ class App extends Component {
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
           <button>Add To Cart</button>
-          <img 
-            src={ img }
-            alt={ name }
-          />
+          <div>
+            <img 
+              src={ img }
+              alt={ name }
+            />
+          </div>
           <div>
             { description }
           </div>
@@ -35,9 +37,9 @@ class App extends Component {
     })
 
     return(
-      <div>
+      <div id="app">
         <h1>My Garage Sale Review</h1>
-        <div>
+        <div className="products">
           {productDataElArr}
         </div>
       </div>
