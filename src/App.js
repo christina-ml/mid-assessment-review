@@ -19,9 +19,10 @@ class App extends Component {
     - Want to add to `subtotal`, and add to `cartArr`.
     - want to pass data to handleAddToCart.
     - if I want to pass information to all of these, use an anonymous arrow function (to prevent it from running immediately), and we want to be able to invoke it.
+    - pass it an argument. When we click `handleAddToCart`, we get what we passed in during the onClick.
   */
-  handleAddToCart=()=>{
-    console.log("trigger");
+  handleAddToCart=(thingFromButton)=>{
+    console.log(thingFromButton);
   }
 
   render(){
