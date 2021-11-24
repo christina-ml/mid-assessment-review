@@ -12,6 +12,12 @@ class App extends Component {
     this.state = {
       cartArr: [],
       subtotal: 0,
+
+      firstName: '',
+      lastName: '',
+      email: '',
+      creditCard: '',
+      zipCode: '',
     }
   }
 
@@ -43,7 +49,17 @@ class App extends Component {
     })
   }
 
-  handleBuyNow=()=>{}
+  handleBuyNow=(event)=>{
+    event.preventDefault();
+    console.log("trigger")
+  }
+
+  handleUserInput=(event)=>{
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+
+  }
 
   render(){
     let productDataElArr = data.map((product)=>{
@@ -100,22 +116,37 @@ class App extends Component {
             <label htmlFor="firstName">First Name</label>
             <input 
               type="text" 
+              name="firstName"
+              value={this.state.firstName}
+              onInput={this.handleUserInput}
             />
              <label htmlFor="lastName">Last Name</label>
             <input 
               type="text" 
+              name="lastName"
+              value={this.state.lastName}
+              onInput={this.handleUserInput}
             />
              <label htmlFor="email">Email</label>
             <input 
               type="text" 
+              name="email"
+              value={this.state.email}
+              onInput={this.handleUserInput}
             />
              <label htmlFor="creditCard">Credit Card</label>
             <input 
               type="text" 
+              name="creditCard"
+              value={this.state.creditCard}
+              onInput={this.handleUserInput}
             />
              <label htmlFor="zipCode">Zip Code</label>
             <input 
               type="text" 
+              name="zipCode"
+              value={this.state.zipCode}
+              onInput={this.handleUserInput}
             />
             <button type="submit">Buy Now</button>
           </form>
