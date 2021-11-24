@@ -10,3 +10,9 @@
     width: 60%;
     padding: 20px;
 }
+
+#checkout {
+    display: grid;
+    grid-template-rows: auto;
+    width: 50%;
+}

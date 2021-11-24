@@ -43,11 +43,13 @@ class App extends Component {
     })
   }
 
+  handleBuyNow=()=>{}
+
   render(){
     let productDataElArr = data.map((product)=>{
       let { id, name, price, img, description } = product;
       return (
-        // Product
+        // Product (component)
         <div key={ id }>
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
@@ -94,7 +96,29 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form></form>
+          <form id="checkout" onSubmit={this.handleBuyNow}>
+            <label htmlFor="firstName">First Name</label>
+            <input 
+              type="text" 
+            />
+             <label htmlFor="lastName">Last Name</label>
+            <input 
+              type="text" 
+            />
+             <label htmlFor="email">Email</label>
+            <input 
+              type="text" 
+            />
+             <label htmlFor="creditCard">Credit Card</label>
+            <input 
+              type="text" 
+            />
+             <label htmlFor="zipCode">Zip Code</label>
+            <input 
+              type="text" 
+            />
+            <button type="submit">Buy Now</button>
+          </form>
         </div>
       </div>
     )
