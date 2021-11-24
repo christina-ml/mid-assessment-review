@@ -53,7 +53,7 @@ class App extends Component {
         <div key={ id }>
           <h3>{ name }</h3>
           <div>Price: {formatPrice(price)}</div>
-          <button onClick={()=>this.handleAddToCart(product)}>Add To Cart</button>
+          <button type="submit" onClick={()=>this.handleAddToCart(product)}>Add To Cart</button>
           <div>
             <img 
               src={ img }
