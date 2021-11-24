@@ -49,40 +49,40 @@ class App extends Component {
     })
   }
 
-  handleBuyNow=(event, firstName, lastName, email, creditCard, zipCode)=>{
-    event.preventDefault();
-    console.log(firstName, lastName, email, creditCard, zipCode);
-
-    if (firstName.length === 0) {
-      window.alert("no first name")
-      return;
-    }
-    if (lastName.length === 0) {
-      window.alert("no last name")
-      return;
-    }
-    if (email.length === 0) {
-      window.alert("no email")
-      return;
-    }
-    if (creditCard.length !== 16) {
-      window.alert("credit card wrong length")
-      return;
-    }
-    if (zipCode.length !== 5) {
-      window.alert("zip code wrong length")
-      return;
-    }
-
-    window.alert("Purchase Complete.")
-  }
-
-  handleUserInput=(event)=>{
+  handleChange=(event)=>{
     this.setState({
       [event.target.name]: event.target.value,
     })
-
   }
+
+  handleSubmit=(event)=>{
+    event.preventDefault();
+    const { firstName, lastName, email, creditCard, zipCode } = this.state;
+
+    if (firstName.length === 0) {
+      window.alert("Input is not valid");
+      return;
+    }
+    if (lastName.length === 0) {
+      window.alert("Input is not valid");
+      return;
+    }
+    if (email.length === 0) {
+      window.alert("Input is not valid");
+      return;
+    }
+    if (creditCard.length !== 16 || isNaN(creditCard)) {
+      window.alert("Credit card number is not valid");
+      return;
+    }
+    if (zipCode.length !== 5 || isNaN(zipCode)) {
+      window.alert("Zip code is not valid");
+      return;
+    }
+
+    window.alert(`Purchase complete ${formatPrice(this.state.subtotal * 1.05)}`)
+  }
+
 
   render(){
     let productDataElArr = data.map((product)=>{
@@ -135,42 +135,57 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form id="checkout" onSubmit={(e)=>this.handleBuyNow(e, this.state.firstName, this.state.lastName, this.state.email, this.state.creditCard, this.state.zipCode)}>
-            <label htmlFor="firstName">First Name</label>
-            <input 
-              type="text" 
-              name="firstName"
-              value={this.state.firstName}
-              onInput={this.handleUserInput}
-            />
-             <label htmlFor="lastName">Last Name</label>
-            <input 
-              type="text" 
-              name="lastName"
-              value={this.state.lastName}
-              onInput={this.handleUserInput}
-            />
-             <label htmlFor="email">Email</label>
-            <input 
-              type="text" 
-              name="email"
-              value={this.state.email}
-              onInput={this.handleUserInput}
-            />
-             <label htmlFor="creditCard">Credit Card</label>
-            <input 
-              type="text" 
-              name="creditCard"
-              value={this.state.creditCard}
-              onInput={this.handleUserInput}
-            />
-             <label htmlFor="zipCode">Zip Code</label>
-            <input 
-              type="text" 
-              name="zipCode"
-              value={this.state.zipCode}
-              onInput={this.handleUserInput}
-            />
+          <form id="checkout" onSubmit={this.handleSubmit}>
+            <div>
+              <label htmlFor="firstName">First Name</label>
+              <input 
+                type="text" 
+                placeholder="First Name"
+                name="firstName"
+                value={this.state.firstName}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="lastName">Last Name</label>
+              <input 
+                type="text" 
+                placeholder="Last Name"
+                name="lastName"
+                value={this.state.lastName}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <input 
+                type="text" 
+                placeholder="Email"
+                name="email"
+                value={this.state.email}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="creditCard">Credit Card</label>
+              <input 
+                type="text" 
+                placeholder="Credit Card"
+                name="creditCard"
+                value={this.state.creditCard}
+                onChange={this.handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="zipCode">Zip Code</label>
+              <input 
+                type="text" 
+                placeholder="Zip Code"
+                name="zipCode"
+                value={this.state.zipCode}
+                onChange={this.handleChange}
+              />
+            </div>
             <button type="submit">Buy Now</button>
           </form>
         </div>
