@@ -49,9 +49,32 @@ class App extends Component {
     })
   }
 
-  handleBuyNow=(event)=>{
+  handleBuyNow=(event, firstName, lastName, email, creditCard, zipCode)=>{
     event.preventDefault();
-    console.log("trigger")
+    console.log(firstName, lastName, email, creditCard, zipCode);
+
+    if (firstName.length === 0) {
+      window.alert("no first name")
+      return;
+    }
+    if (lastName.length === 0) {
+      window.alert("no last name")
+      return;
+    }
+    if (email.length === 0) {
+      window.alert("no email")
+      return;
+    }
+    if (creditCard.length !== 16) {
+      window.alert("credit card wrong length")
+      return;
+    }
+    if (zipCode.length !== 5) {
+      window.alert("zip code wrong length")
+      return;
+    }
+
+    window.alert("Purchase Complete.")
   }
 
   handleUserInput=(event)=>{
@@ -112,7 +135,7 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form id="checkout" onSubmit={this.handleBuyNow}>
+          <form id="checkout" onSubmit={(e)=>this.handleBuyNow(e, this.state.firstName, this.state.lastName, this.state.email, this.state.creditCard, this.state.zipCode)}>
             <label htmlFor="firstName">First Name</label>
             <input 
               type="text" 
