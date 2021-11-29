@@ -16,3 +16,7 @@
     grid-template-rows: auto;
     width: 50%;
 } */
+
+.input-container {
+    margin: 10px 0;
+}

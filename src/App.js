@@ -113,27 +113,27 @@ class App extends Component {
           {/* Checkout (component) */}
           <h1>Checkout</h1>
           <form>
-            <div>
+            <div className="input-container">
               <label htmlFor="first-name">First Name</label>
               <br />
               <input type="text" id="first-name" />
             </div>
-            <div>
+            <div className="input-container">
               <label htmlFor="last-name">Last Name</label>
               <br />
               <input type="text" id="last-name" />
             </div>
-            <div>
+            <div className="input-container">
               <label htmlFor="email">Email</label>
               <br />
               <input type="text" id="email" />
             </div>
-            <div>
+            <div className="input-container">
               <label htmlFor="credit-card">Credit Card</label>
               <br />
               <input type="text" id="credit-card" />
             </div>
-            <div>
+            <div className="input-container">
               <label htmlFor="zip-code">Zip Code</label>
               <br />
               <input type="text" id="zip-code" />
