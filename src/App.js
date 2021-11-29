@@ -26,11 +26,17 @@ class App extends Component {
     })
   }
 
-  handleChange=(event)=>{
-    this.setState({
-      [event.target.name]: event.target.value,
-    });
-  };
+  // handleChange=(event)=>{
+  //   this.setState({
+  //     [event.target.name]: event.target.value,
+  //   });
+  // };
+
+  handleFirstNameChange=(e)=>{
+    console.log(e.target.value)
+  }
+
+
 
   handleSubmit=(event)=>{
     event.preventDefault();
@@ -116,29 +122,54 @@ class App extends Component {
             <div className="input-container">
               <label htmlFor="first-name">First Name</label>
               <br />
-              <input type="text" id="first-name" />
+              <input 
+                type="text" 
+                id="first-name" 
+                value={this.state.firstName}
+                onChange={this.handleFirstNameChange}
+              />
             </div>
             <div className="input-container">
               <label htmlFor="last-name">Last Name</label>
               <br />
-              <input type="text" id="last-name" />
+              <input 
+                type="text" 
+                id="last-name"
+                value={this.state.lastName}
+                // onChange={} 
+              />
             </div>
             <div className="input-container">
               <label htmlFor="email">Email</label>
               <br />
-              <input type="text" id="email" />
+              <input 
+                type="text" 
+                id="email" 
+                value={this.state.email}
+                // onChange={}
+              />
             </div>
             <div className="input-container">
               <label htmlFor="credit-card">Credit Card</label>
               <br />
-              <input type="text" id="credit-card" />
+              <input 
+                type="text" 
+                id="credit-card" 
+                value={this.state.creditCard}
+                // onChange={}
+              />
             </div>
             <div className="input-container">
               <label htmlFor="zip-code">Zip Code</label>
               <br />
-              <input type="text" id="zip-code" />
+              <input 
+                type="text" 
+                id="zip-code" 
+                value={this.state.zipCode}
+                // onChange={}
+              />
             </div>
-
+            <button type="submit">Buy Now</button>
           </form>
 
 
