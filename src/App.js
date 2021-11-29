@@ -112,7 +112,37 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form id="checkout" onSubmit={this.handleSubmit}>
+          <form>
+            <div>
+              <label htmlFor="first-name">First Name</label>
+              <br />
+              <input type="text" id="first-name" />
+            </div>
+            <div>
+              <label htmlFor="last-name">Last Name</label>
+              <br />
+              <input type="text" id="last-name" />
+            </div>
+            <div>
+              <label htmlFor="email">Email</label>
+              <br />
+              <input type="text" id="email" />
+            </div>
+            <div>
+              <label htmlFor="credit-card">Credit Card</label>
+              <br />
+              <input type="text" id="credit-card" />
+            </div>
+            <div>
+              <label htmlFor="zip-code">Zip Code</label>
+              <br />
+              <input type="text" id="zip-code" />
+            </div>
+
+          </form>
+
+
+            {/* <form id="checkout" onSubmit={this.handleSubmit}>
             <div>
               <label htmlFor="firstName">First Name</label>
               <input 
@@ -163,8 +193,8 @@ class App extends Component {
                 onChange={this.handleChange}
               />
             </div>
-            <button type="submit">Buy Now</button>
-          </form>
+            <button type="submit">Buy Now</button> 
+          </form>*/}
         </div>
       </div>
     )
