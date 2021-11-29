@@ -39,34 +39,38 @@ class App extends Component {
   }
 
 
-
-  handleSubmit=(event)=>{
-    event.preventDefault();
-    const { firstName, lastName, email, creditCard, zipCode } = this.state;
-
-    if (firstName.length === 0) {
-      window.alert("Input is not valid");
-      return;
-    }
-    if (lastName.length === 0) {
-      window.alert("Input is not valid");
-      return;
-    }
-    if (email.length === 0) {
-      window.alert("Input is not valid");
-      return;
-    }
-    if (creditCard.length !== 16 || isNaN(creditCard)) {
-      window.alert("Credit card number is not valid");
-      return;
-    }
-    if (zipCode.length !== 5 || isNaN(zipCode)) {
-      window.alert("Zip code is not valid");
-      return;
-    }
-
-    window.alert(`Purchase complete ${formatPrice(this.state.subtotal * 1.05)}`)
+  handleSubmit=(e)=>{
+    e.preventDefault();
+    console.log("Trigger");
   }
+
+  // handleSubmit=(event)=>{
+  //   event.preventDefault();
+  //   const { firstName, lastName, email, creditCard, zipCode } = this.state;
+
+  //   if (firstName.length === 0) {
+  //     window.alert("Input is not valid");
+  //     return;
+  //   }
+  //   if (lastName.length === 0) {
+  //     window.alert("Input is not valid");
+  //     return;
+  //   }
+  //   if (email.length === 0) {
+  //     window.alert("Input is not valid");
+  //     return;
+  //   }
+  //   if (creditCard.length !== 16 || isNaN(creditCard)) {
+  //     window.alert("Credit card number is not valid");
+  //     return;
+  //   }
+  //   if (zipCode.length !== 5 || isNaN(zipCode)) {
+  //     window.alert("Zip code is not valid");
+  //     return;
+  //   }
+
+  //   window.alert(`Purchase complete ${formatPrice(this.state.subtotal * 1.05)}`)
+  // }
 
 
   render(){
@@ -120,7 +124,7 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form>
+          <form onSubmit={this.handleSubmit}>
             <div className="input-container">
               <label htmlFor="first-name">First Name</label>
               <br />
