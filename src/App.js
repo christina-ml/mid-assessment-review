@@ -32,28 +32,18 @@ class App extends Component {
     });
   };
 
-  /* 
-    - Based on the results, it will return a string, based on what that is.
-    - If none of them fail...Purchase Complete 
-  */
-  validateInputs=()=>{
-    const { firstName, lastName, email, creditCard, zipCode, subtotal } = this.state;
-    if (firstName.length === 0 || lastName.length === 0 || email.length === 0){
-      return "Input is not valid";
-    } else if (creditCard.length !== 16 || isNaN(creditCard)){
-      return "Credit card number is not valid";
-    } else if (zipCode.length !== 5 || isNaN(zipCode)){
-      return "Zip code is not valid";
-    } else {
-      return `Purchase complete ${formatPrice(subtotal * 1.05)}`;
-    }
-  }
-
   handleSubmit=(e)=>{
     e.preventDefault();
-    /* Can create a variable that changes based on validation */
-    let message = this.validateInputs();
-    alert(message);
+    const { firstName, lastName, email, creditCard, zipCode, subtotal } = this.state;
+    if (firstName.length === 0 || lastName.length === 0 || email.length === 0){
+      return alert("Input is not valid");
+    } else if (creditCard.length !== 16 || isNaN(creditCard)){
+      return alert("Credit card number is not valid");
+    } else if (zipCode.length !== 5 || isNaN(zipCode)){
+      return alert("Zip code is not valid");
+    } else {
+      return alert(`Purchase complete ${formatPrice(subtotal * 1.05)}`);
+    }
   }
 
   render(){
