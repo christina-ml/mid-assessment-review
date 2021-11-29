@@ -2,12 +2,6 @@ import { Component } from "react";
 import formatPrice from "../helpers/formatPrice";
 
 class Cart extends Component{
-    // constructor(){
-    //     super();
-
-    //     this.state = {}
-    // }
-
     render(){
         return(
             <div>

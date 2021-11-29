@@ -1,12 +1,6 @@
 import { Component } from "react";
 
 class AllProducts extends Component{
-    // constructor(){
-    //     super();
-
-    //     this.state = {}
-    // }
-
     render(){
         return(
             <div>

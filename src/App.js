@@ -54,14 +54,11 @@ class App extends Component {
 
     return(
       <div id="app">
-        {/* All Products (component) */}
         <div id="products-container">
           <AllProducts productDataElArr={productDataElArr}/>  
         </div>
         <div>
-          {/* Cart (component) */}
           <Cart cartElArr={cartElArr} subtotal={this.state.subtotal}/>
-          {/* Checkout (component) */}
           <Checkout subtotal={this.state.subtotal}/>
         </div>
       </div>
