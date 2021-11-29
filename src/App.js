@@ -33,7 +33,9 @@ class App extends Component {
   // };
 
   handleFirstNameChange=(e)=>{
-    console.log(e.target.value)
+    this.setState({
+      firstName: e.target.value,
+    })
   }
 
 
