@@ -3,6 +3,7 @@ import "./App.css";
 import data from './data/productData'
 import formatPrice from './helpers/formatPrice'
 
+// To Do: Everything passes all tests just by being in App.js. Separate into components, and passing down props.
 class App extends Component {
   constructor(){
     super();
