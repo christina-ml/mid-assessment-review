@@ -38,10 +38,23 @@ class App extends Component {
     })
   }
 
+  /* 
+    - Based on the results, it will return a string, based on what that is.
+    - If none of them fail...Purchase Complete 
+  */
+  validateInputs=()=>{
+    if (this.state.firstName.length < 3){
+      return "The name field is too short";
+    } else {
+      return "Purchase complete";
+    }
+  }
 
   handleSubmit=(e)=>{
     e.preventDefault();
-    console.log("Trigger");
+    /* Can create a variable that changes based on validation */
+    let message = this.validateInputs();
+    alert(message);
   }
 
   // handleSubmit=(event)=>{
