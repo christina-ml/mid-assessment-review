@@ -38,15 +38,43 @@ class App extends Component {
     })
   }
 
+  handleLastNameChange=(e)=>{
+    this.setState({
+      lastName: e.target.value,
+    })
+  }
+
+  handleEmailChange=(e)=>{
+    this.setState({
+      email: e.target.value,
+    })
+  }
+
+  handleCreditCardChange=(e)=>{
+    this.setState({
+      creditCard: e.target.value,
+    })
+  }
+
+  handleZipCodeChange=(e)=>{
+    this.setState({
+      zipCode: e.target.value,
+    })
+  }
+
   /* 
     - Based on the results, it will return a string, based on what that is.
     - If none of them fail...Purchase Complete 
   */
   validateInputs=()=>{
-    if (this.state.firstName.length < 3){
-      return "The name field is too short";
+    if (this.state.firstName.length === 0 || this.state.lastName.length === 0 || this.state.email.length === 0){
+      return "Input is not valid";
+    } else if (this.state.creditCard.length !== 16 || isNaN(this.state.creditCard)){
+      return "Credit card number is not valid";
+    } else if (this.state.zipCode.length !== 5 || isNaN(this.state.zipCode)){
+      return "Zip code is not valid";
     } else {
-      return "Purchase complete";
+      return `Purchase complete ${formatPrice(this.state.subtotal * 1.05)}`;
     }
   }
 
@@ -137,7 +165,7 @@ class App extends Component {
 
           {/* Checkout (component) */}
           <h1>Checkout</h1>
-          <form onSubmit={this.handleSubmit}>
+          <form id="checkout" onSubmit={this.handleSubmit}>
             <div className="input-container">
               <label htmlFor="first-name">First Name</label>
               <br />
@@ -155,7 +183,7 @@ class App extends Component {
                 type="text" 
                 id="last-name"
                 value={this.state.lastName}
-                // onChange={} 
+                onChange={this.handleLastNameChange}
               />
             </div>
             <div className="input-container">
@@ -165,7 +193,7 @@ class App extends Component {
                 type="text" 
                 id="email" 
                 value={this.state.email}
-                // onChange={}
+                onChange={this.handleEmailChange}
               />
             </div>
             <div className="input-container">
@@ -175,7 +203,7 @@ class App extends Component {
                 type="text" 
                 id="credit-card" 
                 value={this.state.creditCard}
-                // onChange={}
+                onChange={this.handleCreditCardChange}
               />
             </div>
             <div className="input-container">
@@ -185,7 +213,7 @@ class App extends Component {
                 type="text" 
                 id="zip-code" 
                 value={this.state.zipCode}
-                // onChange={}
+                onChange={this.handleZipCodeChange}
               />
             </div>
             <button type="submit">Buy Now</button>
